@@ -1,0 +1,39 @@
+# The "Art of Intent" Architecture
+
+All development must strictly adhere to this 5-layer pipeline:
+
+## 1. The Intent Layer
+
+* **Input**: Human-provided, machine-readable Markdown specification.
+* **Requirement**: Define business goals, the terminal "Done State," and domain-specific vocabulary.
+
+## 2. The Inferred TDD Layer (Actor-Critic)
+
+* **Action**: Agent translates intent into a Python-based test suite while a Critic agent identifies logical gaps.
+* **Artifact**: Create an `inferred-tdd-feedback-<topic>.md` file.
+* **Recursive Gate**:
+  * **IF** the Intent Layer Markdown is modified **AND** the feedback artifact **DOES NOT** contain `Approval: Granted` as the **last string** in the markdown:
+    * **RE-RUN Layer 2**: Update tests and regenerate the feedback artifact.
+
+  * **ELSE IF** the feedback artifact contains `Approval: Granted` as the **last string**:
+    * **PROCEED** to Layer 3.
+
+  * **OTHERWISE**: Enter a **WAIT STATE**.
+
+## 3. The Implementation Layer
+
+* **Action**: High-speed iterative loop (Code → Test → Fail → Refactor).
+* **Goal**: Eliminate the "Delta" (Δ) between the Python code and verified intent until the gap is exactly zero.
+
+## 4. The Validation Layer (Diagnostic)
+
+* **Action**: Full agent orchestration of the test suite (Integration, Regression, E2E).
+* **Goal**: Utilize system logs and telemetry to provide "operational instinct," ensuring global system integrity.
+
+## 5. The Audit Layer (Auditor)
+
+* **Artifact**: Generate a separate `audit-<date-time>.md` file mapping final results back to the original intent for a transparent evidence chain.
+
+---
+
+> **Operational Note**: All layers are permitted to interact with **adjacent layers** to complete tasks more effectively (e.g., Layer 4 providing failure telemetry back to Layer 3 to expedite the refactoring loop).
