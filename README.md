@@ -21,8 +21,8 @@ A 5-layer agentic development pipeline that enforces rigorous intent-to-implemen
 
 ## Quick Start
 
-1. **Write your intent** — Create a Markdown file in `01-intent/` describing your business goal, done state, and domain vocabulary.
-2. **Run the pipeline** — Ask Antigravity: *"Run the Art of Intent pipeline on `01-intent/<your-file>.md`"*
+1. **Write your intent** — Copy `01-intent/_template.md` and rename it to something identifiable for your specific project (e.g., `01-intent_my-code-project.md`). Fill out the business goal, done state, and domain vocabulary.
+2. **Run the pipeline** — Ask Antigravity: *"Run the Art of Intent pipeline on `01-intent/my-code-project.md`"* (replacing the filename with your actual file).
 3. **Review gates** — The Inferred TDD layer will produce a feedback artifact. Approve or refine until `Approval: Granted`.
 4. **Implementation** proceeds automatically once the gate clears.
 5. **Audit report** is generated at the end for full traceability.
