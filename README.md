@@ -9,13 +9,13 @@ A 5-layer agentic development pipeline that enforces rigorous intent-to-implemen
 │  Layer 1: INTENT          Human spec (Markdown)             │
 │           ↓                                                 │
 │  Layer 2: INFERRED TDD    Actor generates tests,            │
-│           ↕ (gate)        Critic reviews for gaps            │
+│           ↕ (gate)        Critic reviews for gaps           │
 │           ↓                                                 │
 │  Layer 3: IMPLEMENTATION  Code → Test → Fail → Refactor     │
 │           ↕                                                 │
 │  Layer 4: VALIDATION      Integration / Regression / E2E    │
 │           ↓                                                 │
-│  Layer 5: AUDIT           Evidence chain → audit report      │
+│  Layer 5: AUDIT           Evidence chain → audit report     │
 └─────────────────────────────────────────────────────────────┘
 ```
 
