@@ -15,7 +15,8 @@ Execute the 5-layer pipeline in strict sequential order. Each layer must complet
 3. **Enforce the Recursive Gate** — Do NOT proceed until the feedback artifact ends with `Approval: Granted`.
 4. **Execute Layer 3** — Implementation. See `02-implementation.md`.
 5. **Execute Layer 4** — Validation. See `03-validation.md`.
-6. **Execute Layer 5** — Audit. See `04-audit.md`.
+6. **Execute Layer 5** -- Audit. See `04-audit.md`.
+7. **Execute Layer 6** -- Graduation. See `05-graduation.md`.
 
 ### Gate Logic (Layer 2 → Layer 3)
 
@@ -38,7 +39,8 @@ OTHERWISE:
 | 2 — Feedback | `02-inferred-tdd/feedback/` |
 | 3 — Code | `03-implementation/src/` |
 | 4 — Reports | `04-validation/reports/` |
-| 5 — Audit | `05-audit/` |
+| 5 -- Audit | `05-audit/` |
+| 6 -- Graduation | `06-graduation/` |
 
 ### Completion
 

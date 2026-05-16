@@ -1,6 +1,6 @@
 # The "Art of Intent" Architecture
 
-All development must strictly adhere to this 5-layer pipeline:
+All development must strictly adhere to this 6-layer pipeline:
 
 ## 1. The Intent Layer
 
@@ -33,6 +33,13 @@ All development must strictly adhere to this 5-layer pipeline:
 ## 5. The Audit Layer (Auditor)
 
 * **Artifact**: Generate a separate `audit-<date-time>.md` file mapping final results back to the original intent for a transparent evidence chain.
+
+## 6. The Graduation Layer (Eject)
+
+* **Gate**: Re-run the full test suite. The `pytest` exit code is the only trusted verification -- markdown artifacts are documentation, not proof.
+* **Action**: Extract validated code into a standalone Git repo (sibling directory), scaffold production files (README, .gitignore, requirements.txt), and optionally push to GitHub via `gh` CLI.
+* **Cleanup**: Remove implementation files from the framework repo. Pipeline artifacts (intent, tests, feedback, reports, audit) remain permanently.
+* **Artifact**: Generate a `graduation-<topic>.md` record linking the new repo back to the audit trail.
 
 ---
 
