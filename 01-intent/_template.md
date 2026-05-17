@@ -52,8 +52,8 @@ The agent Critic, Actor, and downstream tests will utilize these exact definitio
 -->
 
 | Term | Definition | Precise Data Type / Example |
-| --- | --- | --- |
-|      |            |                            |
+| ---- | ---------- | --------------------------- |
+|      |            |                             |
 
 ## Constraints & Security
 
