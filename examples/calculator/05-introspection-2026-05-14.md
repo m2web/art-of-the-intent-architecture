@@ -1,6 +1,6 @@
-# Audit Report — Calculator
+# Introspection Report — Calculator
 
-> **Layer**: 5 (Auditor)
+> **Layer**: 5 (Introspector)
 > **Date**: 2026-05-14T05:46:00-04:00
 > **Intent Source**: `examples/calculator/01-intent.md`
 
