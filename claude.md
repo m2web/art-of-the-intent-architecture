@@ -9,7 +9,7 @@ All development must strictly adhere to this 6-layer pipeline:
 
 ## 2. The Inferred TDD Layer (Actor-Critic)
 
-* **Action**: Agent translates intent into a Python-based test suite while a Critic agent identifies logical gaps.
+* **Action**: Agent translates intent into a test suite (Python-based by default, or using the target language's native framework) while a Critic agent identifies logical gaps.
 * **Artifact**: Create an `inferred-tdd-feedback-<topic>.md` file.
 * **Recursive Gate**:
   * **IF** the Intent Layer Markdown is modified **AND** the feedback artifact **DOES NOT** contain `Approval: Granted` as the **last string** in the markdown:
@@ -23,7 +23,7 @@ All development must strictly adhere to this 6-layer pipeline:
 ## 3. The Implementation Layer
 
 * **Action**: High-speed iterative loop (Code → Test → Fail → Refactor).
-* **Goal**: Eliminate the "Delta" (Δ) between the Python code and verified intent until the gap is exactly zero.
+* **Goal**: Eliminate the "Delta" (Δ) between the generated code and verified intent until the gap is exactly zero.
 
 ## 4. The Inspection Layer (Diagnostic)
 
@@ -36,10 +36,18 @@ All development must strictly adhere to this 6-layer pipeline:
 
 ## 6. The Integration Layer (Eject)
 
-* **Gate**: Re-run the full test suite. The `pytest` exit code is the only trusted verification -- markdown artifacts are documentation, not proof.
+* **Gate**: Re-run the full test suite. The test runner's exit code (e.g., `pytest` by default, or the target language's runner) is the only trusted verification -- markdown artifacts are documentation, not proof.
 * **Action**: Extract validated code into a standalone Git repo (sibling directory), scaffold production files (README, .gitignore, requirements.txt), and optionally push to GitHub via `gh` CLI.
 * **Cleanup**: Remove implementation files from the framework repo. Pipeline artifacts (intent, tests, feedback, reports, introspection) remain permanently.
 * **Artifact**: Generate a `integration-<topic>.md` record linking the new repo back to the introspection trail.
+
+## Language-Agnostic Support
+
+The architecture is fully language-agnostic. While Python/pytest is the default baseline for framework testing, the pipeline supports generating, validating, and integrating code in any programming language that the LLM is capable of producing:
+
+- **Layer 2 (Inferred TDD)** generates a test suite for the target language's native test framework (e.g., Jest, Cargo test, Go test) in the project namespace.
+- **Layer 3 & 4 (Implementation & Inspection)** executes the target language's test runner command to iteratively drive the test failure count down to zero.
+- **Layer 6 (Integration)** uses the target language's test suite exit code (0 for success) as the deterministic gate before ejecting.
 
 ---
 
