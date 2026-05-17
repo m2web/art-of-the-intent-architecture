@@ -13,11 +13,11 @@ A 6-layer agentic development pipeline that enforces rigorous intent-to-implemen
 |           |                                                   |
 |  Layer 3: IMPLEMENTATION  Code -> Test -> Fail -> Refactor    |
 |           |                                                   |
-|  Layer 4: VALIDATION      Integration / Regression / E2E     |
+|  Layer 4: INSPECTION      Integration / Regression / E2E     |
 |           |                                                   |
-|  Layer 5: AUDIT           Evidence chain -> audit report      |
+|  Layer 5: INTROSPECTION   Evidence chain -> audit report      |
 |           |                                                   |
-|  Layer 6: GRADUATION      Re-verify -> Extract -> Own repo   |
+|  Layer 6: INTEGRATION     Re-verify -> Extract -> Own repo   |
 +---------------------------------------------------------------+
 ```
 
@@ -27,8 +27,8 @@ A 6-layer agentic development pipeline that enforces rigorous intent-to-implemen
 2. **Run the pipeline** -- Ask Antigravity: *"Run the Art of Intent pipeline on `01-intent/my-code-project.md`"*.
 3. **Review gates** -- The Inferred TDD layer produces a feedback artifact. Approve or refine until `Approval: Granted`.
 4. **Implementation** proceeds automatically once the gate clears.
-5. **Audit report** is generated for full traceability.
-6. **Graduation** extracts the validated code into its own repo.
+5. **Introspection report** is generated for full traceability.
+6. **Integration** extracts the validated code into its own repo.
 
 ## Directory Structure
 
@@ -39,9 +39,9 @@ art-of-the-intent-architecture/
 |       +-- 00-orchestrator.md         # Full pipeline coordination
 |       +-- 01-inferred-tdd.md         # Layer 2: Actor-Critic TDD
 |       +-- 02-implementation.md       # Layer 3: Red-Green-Refactor
-|       +-- 03-validation.md           # Layer 4: Diagnostic test orchestration
-|       +-- 04-audit.md                # Layer 5: Evidence chain generation
-|       +-- 05-graduation.md           # Layer 6: Eject to standalone repo
+|       +-- 03-inspection.md           # Layer 4: Diagnostic test orchestration
+|       +-- 04-introspection.md                # Layer 5: Evidence chain generation
+|       +-- 05-integration.md           # Layer 6: Eject to standalone repo
 |       +-- git-conventions/           # Commit message and branch naming rules
 |       +-- markdownlint-conventions/  # Markdown linting rules for this repo
 +-- claude.md                          # Architecture definition (governs agent behavior)
@@ -53,11 +53,11 @@ art-of-the-intent-architecture/
 |   +-- feedback/                      # inferred-tdd-feedback-<topic>.md files
 +-- 03-implementation/                 # Layer 3: Source code (namespaced by project)
 |   +-- src/<project>/                 # Each project in its own subdirectory
-+-- 04-validation/                     # Layer 4: Validation results & telemetry
++-- 04-inspection/                     # Layer 4: Validation results & telemetry
 |   +-- reports/                       # Test run reports and diagnostics
-+-- 05-audit/                          # Layer 5: Audit trail
++-- 05-introspection/                          # Layer 5: Audit trail
 |   +-- audit-<datetime>.md            # Final audit artifacts
-+-- 06-graduation/                     # Layer 6: Graduation records
++-- 06-integration/                     # Layer 6: Graduation records
 |   +-- graduation-<topic>.md          # Breadcrumb linking to the graduated repo
 +-- examples/                          # Reference examples
     +-- calculator/                    # Worked example: simple calculator
@@ -86,14 +86,14 @@ The agent reads your intent and produces:
 
 Iterative development loop targeting D = 0 between code and intent. Projects are namespaced under `03-implementation/src/<project>/`.
 
-### Layer 4 -- Validation
+### Layer 4 -- Inspection
 
 Full test orchestration with diagnostics. Failure telemetry feeds back to Layer 3.
 
-### Layer 5 -- Audit
+### Layer 5 -- Introspection
 
 Final artifact mapping results back to intent for a transparent evidence chain.
 
-### Layer 6 -- Graduation
+### Layer 6 -- Integration
 
-Extracts validated code into a standalone Git repo. The gate is **not** the audit markdown -- it is a fresh `pytest` run. If tests pass (exit code 0), the code is ejected to a sibling directory and optionally pushed to GitHub via `gh` CLI. Implementation files are removed from the framework; pipeline artifacts remain for traceability.
+Extracts validated code into a standalone Git repo. The gate is **not** the introspection markdown -- it is a fresh `pytest` run. If tests pass (exit code 0), the code is ejected to a sibling directory and optionally pushed to GitHub via `gh` CLI. Implementation files are removed from the framework; pipeline artifacts remain for traceability.

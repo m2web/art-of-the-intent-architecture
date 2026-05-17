@@ -43,8 +43,8 @@ Execute an iterative Red-Green-Refactor loop:
 
 - All tests pass: `Δ = 0`.
 - Code is clean and documented.
-- Ready for Layer 4 validation.
+- Ready for Layer 4 inspection.
 
 ## Adjacent Layer Interaction
 
-- **From Layer 4**: If validation reveals failures, accept telemetry and re-enter the Green/Refactor loop to fix regressions.
+- **From Layer 4**: If inspection reveals failures, accept telemetry and re-enter the Green/Refactor loop to fix regressions.

@@ -1,4 +1,4 @@
-# Skill: Layer 4 — Validation (Diagnostic)
+# Skill: Layer 4 — Inspection (Diagnostic)
 
 ## Purpose
 
@@ -40,14 +40,14 @@ If failures are found:
 1. Generate a diagnostic report with failure details, stack traces, and suggested fixes.
 2. **Feed telemetry back to Layer 3** — provide the failure information so the implementation can be corrected.
 3. Layer 3 re-enters its refactor loop and signals back when Δ = 0 again.
-4. Re-run this validation step.
+4. Re-run this inspection step.
 
 ## Artifact Output
 
-Create `04-validation/reports/validation-<topic>-<date>.md` with:
+Create `04-inspection/reports/inspection-<topic>-<date>.md` with:
 
 ```markdown
-# Validation Report — <Topic>
+# Inspection Report — <Topic>
 
 > **Layer**: 4 (Diagnostic)
 > **Date**: <YYYY-MM-DD>
@@ -73,5 +73,5 @@ Create `04-validation/reports/validation-<topic>-<date>.md` with:
 
 - All tests pass across the full suite.
 - No regressions detected.
-- Validation report generated.
-- Ready for Layer 5 audit.
+- Inspection report generated.
+- Ready for Layer 5 introspection.

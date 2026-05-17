@@ -25,21 +25,21 @@ All development must strictly adhere to this 6-layer pipeline:
 * **Action**: High-speed iterative loop (Code → Test → Fail → Refactor).
 * **Goal**: Eliminate the "Delta" (Δ) between the Python code and verified intent until the gap is exactly zero.
 
-## 4. The Validation Layer (Diagnostic)
+## 4. The Inspection Layer (Diagnostic)
 
 * **Action**: Full agent orchestration of the test suite (Integration, Regression, E2E).
 * **Goal**: Utilize system logs and telemetry to provide "operational instinct," ensuring global system integrity.
 
-## 5. The Audit Layer (Auditor)
+## 5. The Introspection Layer (Introspector)
 
-* **Artifact**: Generate a separate `audit-<date-time>.md` file mapping final results back to the original intent for a transparent evidence chain.
+* **Artifact**: Generate a separate `introspection-<date-time>.md` file mapping final results back to the original intent for a transparent evidence chain.
 
-## 6. The Graduation Layer (Eject)
+## 6. The Integration Layer (Eject)
 
 * **Gate**: Re-run the full test suite. The `pytest` exit code is the only trusted verification -- markdown artifacts are documentation, not proof.
 * **Action**: Extract validated code into a standalone Git repo (sibling directory), scaffold production files (README, .gitignore, requirements.txt), and optionally push to GitHub via `gh` CLI.
-* **Cleanup**: Remove implementation files from the framework repo. Pipeline artifacts (intent, tests, feedback, reports, audit) remain permanently.
-* **Artifact**: Generate a `graduation-<topic>.md` record linking the new repo back to the audit trail.
+* **Cleanup**: Remove implementation files from the framework repo. Pipeline artifacts (intent, tests, feedback, reports, introspection) remain permanently.
+* **Artifact**: Generate a `integration-<topic>.md` record linking the new repo back to the introspection trail.
 
 ---
 
