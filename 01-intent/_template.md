@@ -13,18 +13,21 @@ Define the core problem being solved, the "why" behind this project, and the val
 Be concise but thorough.
 -->
 
-## Technical Stack & Dependencies
+## Technical Stack & Dependencies (Optional)
 
 <!-- 
 Specify any mandatory libraries, packages, or databases required.
+If left blank, the agent will propose a suitable stack and dependencies in Layer 2.
 - Mandatory dependencies:
 - Restricted/forbidden dependencies:
 -->
 
-## Core Interface Specification
+## Core Interface Specification (Optional)
 
 <!--
-Describe how the code will be interacted with. Define the interfaces precisely:
+Describe how the code will be interacted with. 
+If left blank, the agent will propose appropriate interfaces in the test suite during Layer 2.
+Define the interfaces precisely if you have specific requirements:
 - CLI command signatures, arguments, and options
 - API endpoint routes, methods, and payload structures
 - Main entrypoint function or class signatures with types
