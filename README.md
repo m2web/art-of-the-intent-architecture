@@ -8,7 +8,7 @@ A 6-layer agentic development pipeline that enforces rigorous intent-to-implemen
 +---------------------------------------------------------------------+
 |  🎯 Layer 1: INTENT          Human spec (Markdown)                  |
 |  🧪 Layer 2: INFERRED TDD    Actor -> Critic -> Generate tests      |
-|                            -> (gate) -> Critic reviews for gaps    |
+|                              -> (gate) -> Critic reviews for gaps   |
 |  🛠️ Layer 3: IMPLEMENTATION  Code -> Test -> Fail -> Refactor       |
 |  🔍 Layer 4: INSPECTION      Integration / Regression / E2E         |
 |  🪞 Layer 5: INTROSPECTION   Evidence chain -> introspection report |
