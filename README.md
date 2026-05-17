@@ -46,7 +46,7 @@ art-of-the-intent-architecture/
 |       +-- 02-implementation.md                # Layer 3: Red-Green-Refactor
 |       +-- 03-inspection.md                    # Layer 4: Diagnostic test orchestration
 |       +-- 04-introspection.md                 # Layer 5: Evidence chain generation
-|       +-- 05-integration.md                   # Layer 6: Eject to standalone repo
+|       +-- 05-integration.md                   # Layer 6: Integrate to standalone repo
 |       +-- git-conventions/                    # Commit message and branch naming rules
 |       +-- markdownlint-conventions/           # Markdown linting rules for this repo
 +-- claude.md                                   # Architecture definition (governs agent behavior)
@@ -106,4 +106,4 @@ Final artifact mapping results back to intent for a transparent evidence chain.
 
 ### Layer 6 -- Integration
 
-Extracts validated code into a standalone Git repo. The gate is **not** the introspection markdown -- it is a fresh execution of the target language's test suite. If tests pass (exit code 0), the code is ejected to a sibling directory and optionally pushed to GitHub via `gh` CLI. Implementation files are removed from the framework; pipeline artifacts remain for traceability.
+Extracts validated code into a standalone Git repo. The gate is **not** the introspection markdown -- it is a fresh execution of the target language's test suite. If tests pass (exit code 0), the code is integrated into a sibling directory and optionally pushed to GitHub via `gh` CLI. Implementation files are removed from the framework; pipeline artifacts remain for traceability.
